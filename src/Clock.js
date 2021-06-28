@@ -25,18 +25,22 @@ export default function Clock() {
             hourHand.style.transform = `rotate(${hourDegrees}deg)`
         }
     }
+    const stopTimer = () => {
+        clearInterval(intervalHolder)
+    }
 
-const stopTimer = (timer) => {
-    return clearInterval(timer)
-}
     useEffect(() => {
         const secondHand = document.getElementById("second")
         const minuteHand = document.getElementById("minute")
         const hourHand = document.getElementById("hour")
 
-        let intervalRun = setInterval(clockRun(secondHand, minuteHand, hourHand), 1000)
+        let intervalRun = setInterval(() => {
+
+        }, 1000)
         setIntervalHolder(intervalRun)
-        return stopTimer(intervalHolder)
+        return clearInterval(intervalHolder)
+
+
     }, [second])
 
     return (
